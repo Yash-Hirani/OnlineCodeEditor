@@ -135,9 +135,9 @@ export default function CodeEditor() {
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center gap-4">
+      <div className="flex items-center  gap-4">
         <Select value={language} onValueChange={setLanguage}>
-          <SelectTrigger className="w-[200px]">
+          <SelectTrigger className="w-[200px] bg-gray-400">
             <SelectValue placeholder="Select language" />
           </SelectTrigger>
           <SelectContent>
@@ -148,13 +148,19 @@ export default function CodeEditor() {
             ))}
           </SelectContent>
         </Select>
-        <Button onClick={handleSubmit} disabled={isLoading} className="ml-auto">
+        <Button
+          onClick={handleSubmit}
+          disabled={isLoading}
+          className="ml-auto flex items-center justify-center transition-all duration-300 ease-in-out transform hover:scale-105"
+        >
           {isLoading ? (
             "Running..."
           ) : (
             <>
               <PlayIcon className="mr-2 h-4 w-4" />
-              Run Code
+              <span className="transition-opacity duration-300 ease-in-out ">
+                Run Code
+              </span>
             </>
           )}
         </Button>
